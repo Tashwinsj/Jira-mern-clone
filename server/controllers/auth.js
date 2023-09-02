@@ -31,8 +31,8 @@ const register = async  (req , res )=>{
 
 const login = async (req ,res)=>{
     try{ 
-        const {name , password } = req.body ; 
-        const user = await User.findOne({name : name})  ; 
+        const {username , password } = req.body ; 
+        const user = await User.findOne({name : username})  ; 
         if (!user) return res.status(400).json({msg : "User doesnt exist"}) 
 
         const ismatch = await bcrypt.compare(password , user.password ) ; 

@@ -44,13 +44,13 @@ export default function Register(){
     }
     return(
         <div className="h-screen flex items-center justify-center">
-         <div className="text-sm bg-gray-300 w-80 rounded  flex-row   justify-center p-12 h-96">
-            <div className="bg-slate-500 h-6 text-white text-lg p-12 pt-4 rounded-lg  ">Register</div> 
-            <input className="m-16 ml-0 l-16 rounded text-lg mb-4" type="text" placeholder="name..." onChange={namlis}></input>
-            <input className="m-16 mt-0 ml-0 l-16 rounded text-lg mb-4" type="email" placeholder="email..." onChange={maillis}></input>
-            <input className="m-16 ml-0 mt-0  mb-0 l-16 rounded text-lg" type="password" placeholder="password" onChange={passlis}></input> 
-            <Link to="/login" > <button onClick={submitreg} className="bg-black w-16 h-8 mt-4 text-white rounded-lg">Submit</button> </Link>
-             <p>{rendermessage}</p>
+         <div className="text-sm bg-gray-300 w-80   flex flex-col items-center  justify-center rounded-2xl  ">
+            <div className="bg-slate-500   text-white text-lg p-2 w-full mt-12 flex flex-row items-center justify-center ">Register</div> 
+            <input className="m-16  p-1 rounded text-lg mb-4 " type="text" placeholder="name..." onChange={namlis}></input>
+            <input className="m-16 p-1 mt-0  rounded text-lg mb-4" type="email" placeholder="email..." onChange={maillis}></input>
+            <input className="m-16  p-1 mt-0  mb-0  rounded text-lg" type="password" placeholder="password" onChange={passlis}></input> 
+            <Link to="/login" > <button onClick={submitreg} className="bg-slate-700 w-52 h-8 mt-4 mb-12 text-white rounded-lg">Submit</button> </Link>
+            <p>{rendermessage}</p>
          </div>
         </div>
     )

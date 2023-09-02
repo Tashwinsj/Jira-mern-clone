@@ -2,12 +2,13 @@ import React from "react";
 import { useState , useEffect } from "react"; 
 import { useNavigate } from "react-router-dom"; 
 import Home from "./Home";
+import {Link} from 'react-router-dom' 
 
 export default function Login(){
     const navigate = useNavigate();
     const [username , setname] = useState('')
     const [password , setpass] = useState('') 
-    const [message, setMessage] = useState(''); 
+    const [message, setMessage] = useState('message here'); 
 
     function setuname(event){
         const txt = event.target.value 
@@ -20,12 +21,15 @@ export default function Login(){
         console.log(password)
     }
     function loginfun(){
-        fetch('http://localhost:5005/api/login', {
+        fetch('http://localhost:6001/login', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',
          },
          body: JSON.stringify({ username , password }),
+         headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
         })
             .then((response) => response.json())
             .then((data) => setMessage(data.message))
@@ -44,7 +48,7 @@ export default function Login(){
                 <div className="m-8 text-center text-slate-600 bg-slate-300  w-full  h-8 pt-1">LOGIN</div> 
                 <input type="text" className="border-4 w-64 m-4 mt-12 rounded " placeholder="Username..." onChange={setuname}></input>
                 <input type="password" className="border-4 w-64 m-4 rounded" placeholder="Password..." onChange={setupass}></input>
-                <button className="w-24 bg-gray-700  rounded  text-white hover:bg-green-700 text-sm" onClick={loginfun}>Login</button> 
+                <Link to="/dashboard" ><button className="w-24 bg-gray-700  rounded  text-white hover:bg-green-700 text-sm" onClick={loginfun}>Login</button></Link>
                 <p className="m-8 text-sm">{message}</p>
             </div>
         </div >
